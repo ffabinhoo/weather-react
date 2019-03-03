@@ -13,8 +13,7 @@ export default class weatherForm extends Component {
                 lng: 151.209900,
             },            
             weather: '',
-            country: '',
-            sbm: false
+            country: ''
         };
     }
     
@@ -23,7 +22,7 @@ export default class weatherForm extends Component {
     onChangeCity = (e) => {
         this.setState({
             city: e.target.value,
-            sbm:false
+            weather: ''
         });
     }
 
@@ -38,18 +37,18 @@ export default class weatherForm extends Component {
                 lat: weather.coord.lat,
                 lng: weather.coord.lon,
             },
-            weather: weather.main.temp, sbm:true}))
+            weather: weather.main.temp}))
         .catch(function(error){
             console.log(error);
         });
         
-       
+    
     }
 
 
     render() {
         let result = '';
-        if (this.state.sbm) {
+        if (this.state.weather!=='') {
             result = 'Temperature in '+ this.state.city + ', '+ this.state.country +'  is ' + this.state.weather + ' Celsius';     
         }else{
             result = '';
