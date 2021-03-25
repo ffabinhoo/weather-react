@@ -29,7 +29,7 @@ export default class weatherForm extends Component {
     onSubmit = (e) =>{
         e.preventDefault();
         let apiKey = 'ee408b842f41f3263792690b39068fbc';
-        fetch(`http://api.openweathermap.org/data/2.5/weather?q=`+ this.state.city+ `&units=metric&appid=`+ apiKey)
+        fetch(`https://api.openweathermap.org/data/2.5/weather?q=`+ this.state.city+ `&units=metric&appid=`+ apiKey)
         .then(response => response.json())
         .then(weather => this.setState({
             country: weather.sys.country,
